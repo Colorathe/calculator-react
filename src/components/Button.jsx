@@ -9,7 +9,7 @@ const Button = ({ type, value }) => {
         calculator.addNumber(parseInt(value));
         break;
 
-      case "operation":
+      case "operator":
         calculator.addOperation(value);
         break;
 
