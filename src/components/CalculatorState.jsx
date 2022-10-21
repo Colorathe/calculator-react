@@ -8,6 +8,7 @@ const AppContext = createContext({
   addNumber: (value) => {},
   addOperation: (operation) => {},
   getResult: () => {},
+  executeAction: () => {},
 });
 
 const CalculatorState = ({ children }) => {
@@ -16,7 +17,15 @@ const CalculatorState = ({ children }) => {
   const [currentValue, setCurrentValue] = useState(0);
   const [isReset, setIsReset] = useState(true);
 
-  function handleAddNumber(value) {}
+  function handleAddNumber(value) {
+    if (isReset) {
+      setCurrentValue(parseInt(value));
+      setIsReset(false);
+    } else {
+      const newValue = currentValue.toString() + value;
+      setCurrentValue(newValue);
+    }
+  }
   function handleAddOperation(operation) {}
   function handleResult() {}
   function handleExecuteAction() {}
